@@ -1,0 +1,28 @@
+library(plotly)
+library(gapminder)
+library(dplyr)
+library(xml2)
+library(rvest) 
+library(magrittr)
+library(tidyr)
+
+df <- gapminder 
+fig <- df %>%
+  plot_ly(
+    x = ~gdpPerCap, 
+    y = ~lifeExp, 
+    size = ~population, 
+    color = ~continent, 
+    frame = ~year, 
+    text = ~country, 
+    hoverinfo = "text",
+    type = 'scatter',
+    mode = 'markers'
+  )
+fig <- fig %>% layout(
+  xaxis = list(
+    type = "log"
+  )
+)
+
+fig

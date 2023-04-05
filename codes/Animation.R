@@ -1,5 +1,3 @@
-setwd('C:\\Users\\ASUS\\Desktop\\D.golalizade')
-
 library('plotly')
 
 accumulate_by <- function(dat, var) {
